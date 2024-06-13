@@ -2,6 +2,7 @@ package test;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import data.DataHelper;
+import org.openqa.selenium.By;
 
 import java.time.Duration;
 
@@ -37,6 +38,10 @@ public class Element {
     private SelenideElement errorYearField = $$("[class=input__inner]").findBy(text("Год")).$(byText("Неверный формат"));
     private SelenideElement errorOwnerField = $$("[class=input__inner]").findBy(text("Владелец")).$(byText("Поле обязательно для заполнения"));
     private SelenideElement errorCVCField = $$("[class=input__inner]").findBy(text("CVC/CVV")).$(byText("Неверный формат"));
+    private SelenideElement headingPay = $(By.xpath("//h3[text()='Оплата по карте']"));
+    private SelenideElement headingPayCredit = $(By.xpath("//h3[text()='Кредит по данным карты']"));
+    private SelenideElement buttonPay = $(By.xpath("//span[contains(text(),'Купить')]"));
+    private SelenideElement buttonPayCredit = $(By.xpath("//span[contains(text(),'Купить в кредит')]"));
 
     public Element() {
         heading.shouldBe(Condition.visible);
@@ -132,6 +137,16 @@ public class Element {
 
     public void enteringInValidCVC() {
         CVCField.setValue(DataHelper.generateInvalidCVC());
+    }
+
+    public void openFormToPay() {
+        buttonPay.click();
+        headingPay.shouldBe(visible);
+    }
+
+    public void openFormToPayCredit() {
+        buttonPayCredit.click();
+        headingPayCredit.shouldBe(visible);
     }
 
 }

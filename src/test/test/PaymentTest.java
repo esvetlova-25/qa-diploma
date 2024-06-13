@@ -36,6 +36,11 @@ public class PaymentTest {
     }
 
     @Test
+    @DisplayName("Go to the form for filling in the card data by clicking the 'Buy' button")
+    void shouldOpenFormByButtonPay() {
+        element.openFormToPay();
+    }
+    @Test
     @DisplayName("Sending payment using card No. 1 with valid data.")
     void shouldOfSuccessfulPurchaseTourWithValidCard1() throws SQLException {
         element.chooseBy("Оплата по карте");

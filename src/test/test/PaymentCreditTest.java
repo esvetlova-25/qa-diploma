@@ -36,6 +36,11 @@ public class PaymentCreditTest {
     }
 
     @Test
+    @DisplayName("Go to the form for filling in the card data by clicking the 'Buy on credit' button")
+    void shouldOpenFormByButtonPayCredit() {
+        element.openFormToPayCredit();
+    }
+    @Test
     @DisplayName("Sending payment using card No. 1 with valid data.")
     void shouldOfSuccessfulPurchaseTourWithValidCreditCard1() throws SQLException {
         element.chooseByInCredit("Кредит по данным карты");
