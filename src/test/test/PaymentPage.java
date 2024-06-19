@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class Element {
+public class PaymentPage {
     private final SelenideElement heading = $("h2.heading");
     private final SelenideElement byButton = $(byText("Купить"));
     private final SelenideElement byInCreditButton = $(byText("Купить в кредит"));
@@ -43,7 +43,7 @@ public class Element {
     private SelenideElement buttonPay = $(By.xpath("//span[contains(text(),'Купить')]"));
     private SelenideElement buttonPayCredit = $(By.xpath("//span[contains(text(),'Купить в кредит')]"));
 
-    public Element() {
+    public PaymentPage() {
         heading.shouldBe(Condition.visible);
     }
 
